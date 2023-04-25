@@ -1,0 +1,23 @@
+[
+    {
+        "nome":"Felipe Rogeiro",
+        "presenca":"sim",
+        "crianca":"nao",
+        "qtdCriancas":"",
+        "nomesCriancas":[]
+    },
+    {
+        "nome": "Aline Silva",
+        "presenca": "sim",
+        "crianca": "sim",
+        "qtdCriancas": "2",
+        "nomesCriancas": ["Lucas", "Maria"]
+      },
+      {
+        "nome": "Carlos Alberto",
+        "presenca": "nao",
+        "crianca": "nao",
+        "qtdCriancas": "",
+        "nomesCriancas": []
+      }
+]

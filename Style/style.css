@@ -9,7 +9,7 @@
 }
 
 html{
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Imperial Script';
     color: white;
     overflow-x:hidden
@@ -56,18 +56,26 @@ body {
     background-color: var(--secondary);
 }
 
+body::-webkit-scrollbar {
+    width: 0.2em;
+    background-color: transparent;
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
 @keyframes blink {
     50% {
       opacity: 0;
     }
 }
 
-.divPrincipalDesktop{
-    width: 100%;
-}
-.desktop{
-    display: none;
-}
 header{
     display:flex;
     width:100%;
@@ -136,6 +144,7 @@ header > h2{
     font-weight: 200;
     letter-spacing: 1.5px;
     text-align: center;
+    font-size: 1.563rem;
 }
 
 .contagemRegressiva{
@@ -186,6 +195,12 @@ header > h2{
     animation: blink 2s infinite;
 }
 
+.comemorarTitulo{
+    text-align: center; 
+    letter-spacing: 0.5px;
+    color: #37825A;
+}
+
 .confirmarPresenca{
     margin-top: 25px;
     display: flex;
@@ -202,7 +217,7 @@ header > h2{
     row-gap: 10px;
 }
 
-.inputNome{
+.inputNome , .inputNomeCrianca{
     width: 100%;
     height: 40px;
     background: #424242;
@@ -213,6 +228,26 @@ header > h2{
     font-size: 1.563rem;
     color: #ffffff;
 }
+
+.inputNome:focus, .inputNomeCrianca:focus, .qtdCriancas:focus {
+    border: 2px solid var(--primary);
+    outline: none;
+    caret-color: var(--primary);
+}
+
+input#qtdCriancas.invalid {
+    border: 2px solid red;
+    animation: shake 0.5s ease-in-out;
+  }
+  
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+100% { transform: translateX(0); }
+}
+
 
 .divInputsRadio{
     display: flex;
@@ -241,6 +276,7 @@ input[type=radio], input[type=checkbox]  {
     width: 25px;
     height: 30px;
     vertical-align: middle;
+    color : var(--primary);
 }
 
 .qtdCriancas{
@@ -269,7 +305,14 @@ input[type=radio], input[type=checkbox]  {
     font-weight: 300;
     letter-spacing: 2px;
     font-size: 1.563rem;
+    cursor: pointer;
 }
+
+.btnEnviar:hover{
+    background-color: #37825A;
+    color: white;
+}
+
 
 .fotosLocal{
     width: 100%;
@@ -308,275 +351,37 @@ footer{
     background: transparent
 }
 
+.hidden{
+    display: none !important;
 
+}
 
-
-@media only screen and (max-width: 768px){
-    .divPrincipalDesktop{
-        width: 100%;
-    }
-    .desktop{
-        display: none;
-    }
-
+@media only screen and (max-width: 500px){
     html{
         font-size: 16px;
     }
-    header{
-        display:flex;
-        width:100%;
-        padding-top: 25px;
-        justify-content: center;
-    }
-
-    header > h2{
-        text-align: center;
-    }
-
-    .capa{
-        margin-top: 20px;
-        width: 100%;
-    }
-
-    .formandas{
-        margin-top: 25px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .titulo{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin-top: 20px;
-    }
-
-    .tituloImg{
-        width: 60px;
-        height: 60px;
-    }
-
-    .tituloText{
-        margin-left: 5px;
-        color: var(--primary);
-        font-weight: 400;
-    }
-
-    .formandasGrid{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap: 10px;
-        justify-content: space-around;
-        align-items: flex-start;
-        margin: 10px;
-    }
-
-    .formanda{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .formandaImg{
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid #373737;
-        filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-    }
-
     .formandaNome{
         font-weight: 200;
         letter-spacing: 1.5px;
         text-align: center;
-    }
-
-    .contagemRegressiva{
-        margin-top: 25px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .relogioGrid{
-        display: grid;
-        grid-template-columns: 1fr 10px 1fr 10px 1fr;
-        gap: 2px;
-        justify-content: space-around;
-        align-items: flex-start;
-        margin: 10px;
-    }
-
-    .divisaoRelogio{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .divisaoRelogio > h3{
-        letter-spacing:1px;
-        color: #595959;
-    }
-
-    .relogio{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .numero{
-        display: flex;
-        background: linear-gradient(90deg, #3F3F3F 0%, #3F3F3F 100%);
-        box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.4);
-        border-radius: 15px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .numero > h1{
-        color: #d7d7d7;
-    }
-
-    .ponteiro{
-        text-align: left;
-        animation: blink 2s infinite;
-    }
-
-    .comemorarTitulo{
-        text-align: center; 
-        letter-spacing: 0.5px;
-    }
-
-
-
-    .confirmarPresenca{
-        margin-top: 25px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
-    .divInput{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 10px;
-        row-gap: 10px;
-    }
-    
-    .inputNome{
-        width: 100%;
-        height: 40px;
-        background: #424242;
-        border: 1px solid #888888;
-        border-radius: 10px;
-        padding: 5px;
-        font-family: 'imperial Script';
-        font-size: 1.563rem;
-        color: #ffffff;
-    }
-
-    .divInputsRadio{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        letter-spacing: 1.5px;
-        padding: 10px;
-    }
-
-    .divRadio{
-        display: flex;
-        width: 50%;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .descRadio{
-        display: flex;
-        gap: 5px;
-    }
-
-    input[type=radio], input[type=checkbox]  {
-        border: 0px;
-        width: 25px;
-        height: 30px;
-        vertical-align: middle;
-    }
-
-    .qtdCriancas{
-        justify-content: flex-end;
-        width: 50%;
-        height: 40px;
-        background: #424242;
-        border: 1px solid #888888;
-        border-radius: 10px;
-        padding: 5px;
-        font-family: 'imperial Script';
-        font-size: 1.563rem;
-        color: #ffffff;
-
-    }
-   
-    .btnEnviar{
-        background-color: var(--primary);
-        border: 1px solid #888888;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        text-align: center;
-        width: 100%;
-        height: 40px;
-        font-family: 'Imperial Script';
-        font-weight: 300;
-        letter-spacing: 2px;
-        font-size: 1.563rem;
-    }
-
-    .fotosLocal{
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 5px;
-
-    }
-    .imgLocal{
-        width: 50%;
-        border-radius: 10px;
-        filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-    }
-
-    .divLinkFotos{
-        height: 15%;
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .divLinkFotos >h4{
-        color: #888888;
-    }
-
-    footer{
-        height: 5%;
-        width: 100%;
-        text-align: center;
-        color: #424242;
-        margin: 10px 0;
-        background: transparent
+        font-size: 1.25rem;
     }
 }
 
+@media only screen and (min-width:501px) and (max-width: 768px){
+    html{
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width: 1024px){
+    html{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    html{
+        font-size: 24px;
+    }
+}

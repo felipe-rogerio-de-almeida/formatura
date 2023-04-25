@@ -1,0 +1,151 @@
+:root{
+    --primary:#D6BB76;
+    --secondary:#1B1B1B;
+}
+
+@font-face {
+    font-family: 'Imperial Script' ;
+    src: url("../Fonts/ImperialScript-Regular.ttf");
+}
+
+html{
+    font-size: 22px;
+    color: white;
+    overflow-x:hidden
+}
+
+h1{
+    font-size: 2.441rem;
+    line-height: 110%;
+}
+
+h2{
+    font-size:1.953rem;
+    line-height: 110%;
+}
+
+h3{
+    font-size: 1.563rem;
+    line-height: 120%;
+}
+
+h4{
+    font-size: 1.25;
+    line-height: 120%;
+}
+
+p{
+    font-size: 1rem;
+    line-height: 140%;
+}
+
+.small{
+    font-size: 0.8rem;
+    line-height: 140%;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--secondary);
+}
+
+body::-webkit-scrollbar {
+    width: 0.2em;
+    background-color: transparent;
+}
+   
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+  
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.titulo{
+    font-family: 'Imperial Script';
+    text-align: center;
+    color: var(--primary);
+    margin-top:50px;
+    margin-bottom: 25px;
+}
+
+.divFlex{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.botoes{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.btnFiltros{
+    width: 23%;
+    font-size: 0.8rem;
+    font-family: 'Imperial Script';
+    border-radius: 10px;
+    height: 30px;
+    background-color: #e5e5e5;
+    border: 1px solid #000000;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.btnFiltros:hover{
+    background-color: var(--primary);
+    color: var(--secondary);
+    transition: background 0.5s ease;
+}
+
+.active{
+    background-color: var(--primary);
+    color: #1B1B1B;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    font-size: 1.25rem;
+    text-align: center;
+    margin: 5px 10px;
+    font-family: 'Imperial Script';
+    vertical-align: middle;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    html{
+        font-size: 16px;
+    }
+
+    th{
+        font-size: 1rem;
+    }
+
+    td{
+        font-size: 0.8rem;
+    }
+}

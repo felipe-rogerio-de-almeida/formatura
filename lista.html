@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Confirmados</title>
+    <link rel= "stylesheet" href="./Style/lista.css">
+</head>
+<body>
+    <h1 class="titulo">Lista De Presença</h1>
+    <div class="botoes">
+        <button class ="btnFiltros active" id="ordenar-nome">Ordenar por nome</button>
+        <button class ="btnFiltros" id="filtrar-presenca-sim">Confirmados</button>        
+        <button class ="btnFiltros"  id="filtrar-presenca-nao">Não Confirmados</button>
+        <button class ="btnFiltros"  id="imprimir-lista">Imprimir lista</button>
+    </div>
+    <div class="divFlex">
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Presença</th>
+                <th>Criança</th>
+                <th>Qtd. crianças</th>
+                <th>Nomes crianças</th>
+            </tr>
+            </thead>
+            <tbody id="tabela-corpo"></tbody>
+        </table>
+    </div>
+
+      <script>
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            const dados = JSON.parse(this.responseText);
+            dados.sort(function(a, b) {
+              if (a.nome < b.nome) {
+                return -1;
+              } else if (a.nome > b.nome) {
+                return 1;
+              } else {
+                return 0;
+              }
+            });
+            const tabelaCorpo = document.getElementById("tabela-corpo");
+            dados.forEach(function(item) {
+                const tr = document.createElement("tr");
+                const tdNome = document.createElement("td");
+                tdNome.textContent = item.nome;
+                const tdPresenca = document.createElement("td");
+                tdPresenca.textContent = item.presenca;
+                const tdCrianca = document.createElement("td");
+                tdCrianca.textContent = item.crianca;
+                const tdQtdCriancas = document.createElement("td");
+                tdQtdCriancas.textContent = item.qtdCriancas;
+                const tdNomesCriancas = document.createElement("td");
+                item.nomesCriancas.forEach(function(nome) {
+                    const span = document.createElement("span");
+                    span.textContent = nome;
+                    tdNomesCriancas.appendChild(span);
+                    tdNomesCriancas.appendChild(document.createElement("br"));
+                });
+              tr.appendChild(tdNome);
+              tr.appendChild(tdPresenca);
+              tr.appendChild(tdCrianca);
+              tr.appendChild(tdQtdCriancas);
+              tr.appendChild(tdNomesCriancas);
+              tabelaCorpo.appendChild(tr);
+            });
+          }
+        };
+        xmlhttp.open("GET", "lista.json", true);
+        xmlhttp.send();
+      </script>
+</body>
+</html>
