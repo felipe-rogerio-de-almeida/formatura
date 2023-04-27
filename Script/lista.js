@@ -1,9 +1,15 @@
 // Função para atualizar a tabela com os dados fornecidos
-function atualizarTabela(dados) {
+function atualizarTabela(dados, filtro = '') {
   const tabelaCorpo = document.getElementById("tabela-corpo");
   tabelaCorpo.innerHTML="";
+  
+  // Filtra os dados com base no valor do campo de entrada de texto
+  const dadosFiltrados = dados.filter(function(item) {
+    return item.nome.toLowerCase().includes(filtro.toLowerCase());
+  });
+
   // Ordena os dados por nome
-  dados.sort(function(a, b) {
+  dadosFiltrados.sort(function(a, b) {
     if (a.nome < b.nome) {
       return -1;
     } else if (a.nome > b.nome) {
@@ -12,7 +18,8 @@ function atualizarTabela(dados) {
       return 0;
     }
   });
-  dados.forEach(function(item) {
+
+  dadosFiltrados.forEach(function(item) {
       const tr = document.createElement("tr");
       const tdNome = document.createElement("td");
       tdNome.textContent = item.nome;
@@ -39,8 +46,23 @@ function atualizarTabela(dados) {
 }
 
 
+document.querySelector("#search-input").addEventListener("input", function() {
+  const filtro = this.value;
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const dados = JSON.parse(this.responseText);
+      // Atualiza a tabela com os dados filtrados
+      atualizarTabela(dados, filtro);
+    }
+  };
+  xmlhttp.open("GET", "lista.json", true);
+  xmlhttp.send();
+});
+
+
 // Manipulador de evento para o botão "Ordenar por nome"
-document.querySelector("#ordenar-nome").addEventListener("click", function() {    
+  document.querySelector("#ordenar-nome").addEventListener("click", function() {    
   document.querySelector("#filtrar-presenca-nao").classList.remove("active");
   document.querySelector("#filtrar-presenca-sim").classList.remove("active");
   document.querySelector("#ordenar-nome").classList.add("active");

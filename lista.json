@@ -1,23 +1,58 @@
 [
-    {
-        "nome":"Felipe Rogeiro",
-        "presenca":"sim",
-        "crianca":"nao",
-        "qtdCriancas":"",
-        "nomesCriancas":[]
-    },
-    {
-        "nome": "Aline Silva",
-        "presenca": "sim",
-        "crianca": "sim",
-        "qtdCriancas": "2",
-        "nomesCriancas": ["Lucas", "Maria"]
-      },
-      {
-        "nome": "Carlos Alberto",
-        "presenca": "nao",
-        "crianca": "nao",
-        "qtdCriancas": "",
-        "nomesCriancas": []
-      }
-]
+  {
+  "nome": "Ana Luiza Dutra",
+  "presenca": "nao",
+  "crianca": "nao",
+  "qtdCriancas": 0,
+  "nomesCriancas": [
+  "-"
+  ]
+  },
+  {
+  "nome": "Beatriz Tejo",
+  "presenca": "nao",
+  "crianca": "nao",
+  "qtdCriancas": 0,
+  "nomesCriancas": [
+  "-"
+  ]
+  },
+  {
+  "nome": "Christine Almeida",
+  "presenca": "sim",
+  "crianca": "nao",
+  "qtdCriancas": 0,
+  "nomesCriancas": [
+  "-"
+  ]
+  },
+  {
+  "nome": "Gabriela Saffe",
+  "presenca": "sim",
+  "crianca": "sim",
+  "qtdCriancas": "1",
+  "nomesCriancas": [
+  "Bruno Costa"
+  ]
+  },
+  {
+  "nome": "Júlia Vieira",
+  "presenca": "sim",
+  "crianca": "sim",
+  "qtdCriancas": "2",
+  "nomesCriancas": [
+  "Thomas Vieira",
+  "Mariana Vieira"
+  ]
+  },
+  {
+  "nome": "Victoria Almeida",
+  "presenca": "sim",
+  "crianca": "nao",
+  "qtdCriancas": 0,
+  "nomesCriancas": [
+  "-"
+  ]
+  }
+  ]
+  

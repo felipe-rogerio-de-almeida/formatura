@@ -1,3 +1,37 @@
+// Seleciona o input de nome
+const nomeInput = document.querySelector('#nome');
+
+// Adiciona o evento blur ao input de nome para validar se contém números
+nomeInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+        return;
+      }
+    if (/[0-9]/.test(event.key)) {
+        event.preventDefault();
+      }
+});
+
+// Seleciona o input radio de presença
+const presencaInput = document.querySelectorAll('input[name="presenca"]');
+let presencaValor = '';
+
+const divInputsRadio = document.querySelector('#divInputsRadio');
+
+// Adiciona o evento change ao input radio de presença para armazenar o valor selecionado
+presencaInput.forEach(input => {
+    input.addEventListener('change',() =>{
+        presencaValor = document.querySelector('input[name="presenca"]:checked').value;
+        if (input.value === 'sim') {
+          divInputsRadio.classList.remove('hidden');
+        } else {
+          divInputsRadio.classList.add('hidden');
+          const inputNao = document.querySelector('input[name="crianca"][value="nao"]');
+          inputNao.checked = true;
+          inputNao.dispatchEvent(new Event('change'));
+        }
+    })
+});
+
 const crianca = document.querySelectorAll('input[name="crianca"]');
 
 crianca.forEach(input => {
@@ -9,8 +43,11 @@ crianca.forEach(input => {
             qtdCrianca.classList.remove("hidden")
             divInputCrianca.classList.remove("hidden")
         }else{
+            const qtdCriancasInput = document.querySelector('#qtdCriancas');
+            qtdCriancasInput.value = ''
             qtdCrianca.classList.add("hidden")
             divInputCrianca.classList.add("hidden")
+            qtdCriancasInput.dispatchEvent(new Event('input'));
         }
     
     })
@@ -55,29 +92,6 @@ qtdCriancasInput.addEventListener('blur', () => {
   }
 });
 
-// Seleciona o input de nome
-const nomeInput = document.querySelector('#nome');
-
-// Adiciona o evento blur ao input de nome para validar se contém números
-nomeInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Backspace' || event.key === 'Delete') {
-        return;
-      }
-    if (/[0-9]/.test(event.key)) {
-        event.preventDefault();
-      }
-});
-
-// Seleciona o input radio de presença
-const presencaInput = document.querySelectorAll('input[name="presenca"]');
-let presencaValor = '';
-
-// Adiciona o evento change ao input radio de presença para armazenar o valor selecionado
-presencaInput.forEach(input => {
-    input.addEventListener('change',() =>{
-        presencaValor = document.querySelector('input[name="presenca"]:checked').value;
-    })
-});
 
 // Seleciona o botão de enviar
 const btnEnviar = document.getElementById('btnEnviar');
@@ -92,15 +106,19 @@ btnEnviar.addEventListener('click', () => {
   inputNomesCriancas.forEach(input => {
     if (input.value === '' || input.classList.contains('invalid')) {
       inputsValidos = false;
+      console.log(inputsValidos)
     }
   });
 
-    const valorCrianca = document.querySelector('input[name="crianca"]').value;
-    if (nomeInput.value === '' || nomeInput.classList.contains('invalid') || presencaValor === '' || !inputsValidos) {
-        alert('Por favor, preencha todos os campos corretamente.');
-    } else {
-        enviarResposta();
-    }
+  const valorCrianca = document.querySelector('input[name="crianca"]').value;
+  const criancaNao = document.querySelector('input[name="crianca"]:checked').value;
+  if (nomeInput.value === '' || nomeInput.classList.contains('invalid') || presencaValor === '' || (presencaValor !== '' && valorCrianca === '') || (criancaNao !== 'nao' && valorCrianca === '') || !inputsValidos) {
+    alert('Por favor, preencha todos os campos corretamente.');
+  } else {
+    enviarResposta();
+  }
+
+
 });
 
 // Função que será chamada ao clicar no botão enviar
@@ -119,32 +137,33 @@ const enviarResposta = () => {
     nomesCriancas: []
   };
   
-  // Preenche o array de nomes das crianças, caso haja
-  const inputsNomeCrianca = document.querySelectorAll('.inputNomeCrianca');
-  inputsNomeCrianca.forEach(input => {
-    if (input.value !== '') {
+  if (resposta.crianca === 'nao') {
+    resposta.qtdCriancas = 0;
+    resposta.nomesCriancas = ['-'];
+  } else {
+    resposta.qtdCriancas = document.querySelector('#qtdCriancas').value;
+    // código para preencher o array nomesCriancas com os nomes das crianças
+    // Preenche o array de nomes das crianças, caso haja
+    const inputsNomeCrianca = document.querySelectorAll('.inputNomeCrianca');
+    inputsNomeCrianca.forEach(input => {
       resposta.nomesCriancas.push(input.value);
-    }
-  });
+    });
+  }
   
-  // Lê o arquivo JSON
   const xhr = new XMLHttpRequest();
   xhr.open('GET', '../lista.json');
   xhr.onload = function() {
     const dados = JSON.parse(this.responseText);
-    // Adiciona a nova resposta ao final do array
     dados.push(resposta);
     console.log(dados)
-//NAO TA FUNCINANDO    
-    // Escreve o array de volta para o arquivo JSON
     const xhr2 = new XMLHttpRequest();
     const novosDados = JSON.stringify(dados)
-    xhr2.open('PUT', '../lista.json');
-    xhr2.setRequestHeader('Content-Type', 'application/json');
+    xhr2.open('POST', './Script/salvar.php');
+    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr2.onload = function() {
       console.log('Dados salvos com sucesso!');
     };
-    xhr2.send(novosDados);
+    xhr2.send('dados=' + novosDados);
   };
   xhr.send();
 }

@@ -6,15 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Confirmados</title>
     <link rel= "stylesheet" href="./Style/lista.css">
-</head>
+    <script src="https://kit.fontawesome.com/6ab03bd738.js" crossorigin="anonymous"></script>
+  </head>
 <body>
     <h1 class="titulo">Lista De Presença</h1>
+
+    <div class="search-container">
+      <div class="search-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <input type="text" id="search-input" placeholder="Pesquisar...">
+    </div>
+
+    <script>
+      const searchIcon = document.querySelector('.search-icon');
+      const searchInput = document.querySelector('#search-input');
+
+      searchIcon.addEventListener('click', function() {
+        searchInput.classList.toggle('active');
+        searchInput.focus();
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !searchIcon.contains(e.target)) {
+          searchInput.classList.remove('active');
+        }
+      });
+
+    </script>
+
     <div class="botoes">
         <button class ="btnFiltros active" id="ordenar-nome">Ordenar por nome</button>
         <button class ="btnFiltros" id="filtrar-presenca-sim">Confirmados</button>        
         <button class ="btnFiltros"  id="filtrar-presenca-nao">Não Confirmados</button>
         <button class ="btnFiltros"  id="imprimir-lista">Imprimir lista</button>
     </div>
+
+
     <div class="divFlex">
         <table>
             <thead>
