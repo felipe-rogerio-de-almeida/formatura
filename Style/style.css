@@ -3,14 +3,20 @@
     --secondary:#1B1B1B;
 }
 
-@font-face {
-    font-family: 'Imperial Script' ;
-    src: url("../Fonts/ImperialScript-Regular.ttf");
+::selection{
+    color: #ffffff;
+    background-color: var(--primary);
 }
+
+@font-face {
+    font-family: 'Sacramento' ;
+    src: url("../Fonts/Sacramento-Regular.ttf");
+}
+
 
 html{
     font-size: 22px;
-    font-family: 'Imperial Script';
+    font-family: 'Sacramento' ;
     color: white;
     overflow-x:hidden
 }
@@ -85,19 +91,45 @@ header{
 
 header > h2{
     text-align: center;
+    font-family: 'Sacramento';
 }
 
 .capa{
     margin-top: 20px;
     width: 100%;
+    animation: slideLeft 2s ease-in;
 }
 
+@keyframes slideLeft{
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    };
+    100%{
+        transform: translateX(0%);
+        opacity:1
+    };
+}
+
+@keyframes slideRight{
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    };
+    100%{
+        transform: translateX(0%);
+        opacity:1
+    };
+}
+
+
 .formandas{
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 
 .titulo{
     display: flex;
@@ -123,7 +155,8 @@ header > h2{
     gap: 10px;
     justify-content: space-around;
     align-items: flex-start;
-    margin: 10px;
+    margin: 20px;
+    animation: slideRight 2s ease-in;
 }
 
 .formanda{
@@ -133,6 +166,7 @@ header > h2{
     align-items: center;
 }
 
+
 .formandaImg{
     width: 100%;
     border-radius: 10px;
@@ -141,14 +175,16 @@ header > h2{
 }
 
 .formandaNome{
+    margin-top: 8px;
     font-weight: 200;
     letter-spacing: 1.5px;
     text-align: center;
     font-size: 1.563rem;
+    font-family: 'Sacramento';
 }
 
 .contagemRegressiva{
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -180,6 +216,10 @@ header > h2{
     gap: 5px;
 }
 
+.divisaoRelogio > h4{
+    font-family: 'Epilogue';
+}
+
 .numero{
     display: flex;
     background: linear-gradient(90deg, #3F3F3F 0%, #3F3F3F 100%);
@@ -187,22 +227,26 @@ header > h2{
     border-radius: 15px;
     justify-content: center;
     align-items: center;
+    font-family: 'Epilogue';
 
 }
 
 .ponteiro{
     text-align: left;
     animation: blink 2s infinite;
+    font-family: 'Epilogue';
 }
 
 .comemorarTitulo{
+    margin-top: 20px;
     text-align: center; 
-    letter-spacing: 0.5px;
     color: #37825A;
+    font-family: 'Epilogue';
+    font-size: 1.3rem;
 }
 
 .confirmarPresenca{
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -224,8 +268,8 @@ header > h2{
     border: 1px solid #888888;
     border-radius: 10px;
     padding: 5px;
-    font-family: 'imperial Script';
-    font-size: 1.563rem;
+    font-family: 'Epilogue';
+    font-size: 1rem;
     color: #ffffff;
 }
 
@@ -245,7 +289,7 @@ input#qtdCriancas.invalid {
     25% { transform: translateX(-5px); }
     50% { transform: translateX(5px); }
     75% { transform: translateX(-5px); }
-100% { transform: translateX(0); }
+    100% { transform: translateX(0); }
 }
 
 
@@ -255,28 +299,46 @@ input#qtdCriancas.invalid {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    letter-spacing: 1.5px;
     padding: 10px;
+}
+
+.divInputsRadio > h4{
+    font-family: 'Epilogue';
+    margin-bottom: 5px;
+    font-size: 1.25rem;
 }
 
 .divRadio{
     display: flex;
     width: 50%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 70px;
     align-items: center;
 }
 
 .descRadio{
     display: flex;
     gap: 5px;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.descRadio > h4{
+    font-family: 'Epilogue';
+    font-size: 1rem;
 }
 
 input[type=radio], input[type=checkbox]  {
     border: 0px;
-    width: 25px;
-    height: 30px;
+    width: 45px;
+    height: 50px;
     vertical-align: middle;
     color : var(--primary);
+}
+
+input[type="radio"]:checked {
+    background-color: var(--primary)!important;
+    color: var(--primary);
 }
 
 .qtdCriancas{
@@ -287,8 +349,8 @@ input[type=radio], input[type=checkbox]  {
     border: 1px solid #888888;
     border-radius: 10px;
     padding: 5px;
-    font-family: 'imperial Script';
-    font-size: 1.563rem;
+    font-family: 'Epilogue';
+    font-size: 1rem;
     color: #ffffff;
 
 }
@@ -299,12 +361,14 @@ input[type=radio], input[type=checkbox]  {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: center;
+    vertical-align: middle;
+    justify-content: center;
     width: 100%;
     height: 40px;
-    font-family: 'Imperial Script';
+    font-family: 'Epilogue';
+    color: #1B1B1B;
     font-weight: 300;
-    letter-spacing: 2px;
-    font-size: 1.563rem;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -313,6 +377,9 @@ input[type=radio], input[type=checkbox]  {
     color: white;
 }
 
+.local{
+    margin: 20px 0;
+}
 
 .fotosLocal{
     width: 100%;
@@ -340,6 +407,8 @@ input[type=radio], input[type=checkbox]  {
 
 .divLinkFotos >h4{
     color: #888888;
+    font-family: 'Epilogue';
+    text-align: center;
 }
 
 footer{
@@ -366,17 +435,42 @@ footer{
         text-align: center;
         font-size: 1.25rem;
     }
+
+    input[type=radio], input[type=checkbox]  {
+        border: 0px;
+        width: 25px;
+        height: 30px;
+        vertical-align: middle;
+        color : var(--primary);
+    }
 }
 
 @media only screen and (min-width:501px) and (max-width: 768px){
     html{
         font-size: 18px;
     }
+    input[type="radio"] {
+        background-color: var(--primary);
+      }
+
+    input[type=radio], input[type=checkbox]  {
+        border: 0px;
+        width: 25px;
+        height: 30px;
+        vertical-align: middle;
+    }
 }
 
 @media only screen and (min-width:769px) and (max-width: 1024px){
     html{
         font-size: 20px;
+    }
+    input[type=radio], input[type=checkbox]  {
+        border: 0px;
+        width: 25px;
+        height: 30px;
+        vertical-align: middle;
+        color : var(--primary);
     }
 }
 
@@ -385,3 +479,5 @@ footer{
         font-size: 24px;
     }
 }
+
+

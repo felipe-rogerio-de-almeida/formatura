@@ -4,11 +4,13 @@ crianca.forEach(input => {
     input.addEventListener('change',() =>{
         const criancaValor = document.querySelector('input[name="crianca"]:checked').value;
         const qtdCrianca = document.getElementById("divQtdCrianca")
-    
+        const divInputCrianca = document.getElementById("divInput")
         if (criancaValor == "sim" ){
             qtdCrianca.classList.remove("hidden")
+            divInputCrianca.classList.remove("hidden")
         }else{
             qtdCrianca.classList.add("hidden")
+            divInputCrianca.classList.add("hidden")
         }
     
     })
@@ -136,12 +138,13 @@ const enviarResposta = () => {
 //NAO TA FUNCINANDO    
     // Escreve o array de volta para o arquivo JSON
     const xhr2 = new XMLHttpRequest();
+    const novosDados = JSON.stringify(dados)
     xhr2.open('PUT', '../lista.json');
     xhr2.setRequestHeader('Content-Type', 'application/json');
     xhr2.onload = function() {
       console.log('Dados salvos com sucesso!');
     };
-    xhr2.send(JSON.stringify(dados));
+    xhr2.send(novosDados);
   };
   xhr.send();
 }
