@@ -20,12 +20,12 @@
 
 @font-face {
     font-family: 'Ibarra Real' ;
-    src: url("../fonts/IbarraRealNova-Regular.ttf");
+    src: url("../Fonts/IbarraRealNova-Regular.ttf");
 }
 
 @font-face {
     font-family: 'Dream Avenue' ;
-    src: url("../fonts/Dream-Avenue.ttf");
+    src: url("../Fonts/Dream-Avenue.ttf");
 }
 
 html{
@@ -216,12 +216,6 @@ header > h2{
     100%{
         opacity: 1;
     }
-}
-
-.tituloImg{
-    width: 60px;
-    height: 60px;
-    display: none !important;
 }
 
 .tituloText{
