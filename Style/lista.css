@@ -18,10 +18,14 @@
     src: url("../Fonts/amsterdam-four-ttf.ttf");
 }
 
-
 @font-face {
     font-family: 'Ibarra Real Nova' ;
     src: url("../Fonts/IbarraRealNova-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: 'Dream Avenue' ;
+    src: url("../Fonts/Dream-Avenue.ttf");
 }
 
 html{
@@ -86,11 +90,11 @@ body::-webkit-scrollbar-track {
 }
 
 .titulo{
-    font-family: 'Sacramento';
+    font-family: 'Amsterdan Four';
     text-align: center;
     color: var(--primary);
     margin-top:50px;
-    margin-bottom: 25px;
+    margin-bottom: 55px;
 }
 
 .divFlex{
@@ -112,7 +116,7 @@ body::-webkit-scrollbar-track {
 .btnFiltros{
     width: 23%;
     font-size: 0.7rem;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     border-radius: 10px;
     height: 30px;
     background-color: #e5e5e5;
@@ -138,10 +142,10 @@ table{
 }
 
 th{
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
-    margin: 5px 10px;
-    font-family: 'Sacramento';
+    margin: 5px;
+    font-family: 'Dream Avenue';
     vertical-align: middle;
 }
 
@@ -149,7 +153,11 @@ td{
     text-align: center;
     vertical-align: middle;
     font-size: 1rem;
-    margin: 10px 0;
+    margin: 10px;
+}
+
+td:first-child{
+    text-align: left;
 }
 
 .search-container {
@@ -182,7 +190,7 @@ td{
     transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     background-color: #424242;
     caret-color: var(--primary);
     color: #ffffff;
