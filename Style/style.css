@@ -13,10 +13,24 @@
     src: url("../Fonts/Sacramento-Regular.ttf");
 }
 
+@font-face {
+    font-family: 'Amsterdan Four' ;
+    src: url("../Fonts/amsterdam-four-ttf.ttf");
+}
+
+@font-face {
+    font-family: 'Ibarra Real' ;
+    src: url("../fonts/IbarraRealNova-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Dream Avenue' ;
+    src: url("../fonts/Dream-Avenue.ttf");
+}
 
 html{
     font-size: 22px;
-    font-family: 'Sacramento' ;
+    font-family: 'Amsterdan Four' ;
     color: white;
     overflow-x:hidden
 }
@@ -85,19 +99,75 @@ body::-webkit-scrollbar {
 header{
     display:flex;
     width:100%;
+    height: auto !important;
     padding-top: 25px;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+   
 }
+
+@keyframes slideDown {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    };
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes slideUp {
+    0%{
+        opacity: 0;
+        transform: translateY(100%);
+    };
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
 
 header > h2{
     text-align: center;
-    font-family: 'Sacramento';
+    font-family: 'Amsterdan Four';
+    line-height: 160% !important;
+    animation: slideDown 2s ease-in;
+
 }
+
+.goldLeave1 , .goldLeave2{
+    width: 200px;
+    height: 200px;
+}
+
+
+.goldLeave1{
+    transform: rotate(40deg);
+    position: relative;
+    left: -5%;
+    animation: slideLeft 2s ease-in;
+}
+
+.goldLeave2{
+    transform: scale(-1) rotateX(180deg) rotateZ(40deg);
+    position: relative;
+    right: -5%;
+    animation: slideRight 2s ease-in;
+}
+
 
 .capa{
     margin-top: 20px;
     width: 100%;
-    animation: slideLeft 2s ease-in;
+    animation: fade-in 3.2s ease-in;
 }
 
 @keyframes slideLeft{
@@ -128,6 +198,7 @@ header > h2{
     display: flex;
     flex-direction: column;
     width: 100%;
+    animation: slideUp 2s ease-in;
 }
 
 
@@ -135,18 +206,30 @@ header > h2{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin: 20px 0px;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    };
+    100%{
+        opacity: 1;
+    }
 }
 
 .tituloImg{
     width: 60px;
     height: 60px;
+    display: none !important;
 }
 
 .tituloText{
     margin-left: 5px;
     color: var(--primary);
     font-weight: 400;
+    letter-spacing: 3px ;
+    line-height: 200%;
 }
 
 .formandasGrid{
@@ -156,7 +239,7 @@ header > h2{
     justify-content: space-around;
     align-items: flex-start;
     margin: 20px;
-    animation: slideRight 2s ease-in;
+    /*animation: slideRight 2s ease-in;*/
 }
 
 .formanda{
@@ -179,8 +262,9 @@ header > h2{
     font-weight: 200;
     letter-spacing: 1.5px;
     text-align: center;
-    font-size: 1.563rem;
-    font-family: 'Sacramento';
+    font-size: 1.1rem !important;
+    line-height: 110%;
+    font-family: 'Dream Avenue';
 }
 
 .contagemRegressiva{
@@ -217,7 +301,7 @@ header > h2{
 }
 
 .divisaoRelogio > h4{
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
 }
 
 .numero{
@@ -227,22 +311,24 @@ header > h2{
     border-radius: 15px;
     justify-content: center;
     align-items: center;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
 
 }
 
 .ponteiro{
     text-align: left;
     animation: blink 2s infinite;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
 }
 
 .comemorarTitulo{
     margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center; 
     color: #37825A;
-    font-family: 'Epilogue';
-    font-size: 1.3rem;
+    font-family: 'Ibarra Real';
+    font-size: 0.8rem;
+    letter-spacing: 5px;
 }
 
 .confirmarPresenca{
@@ -268,7 +354,7 @@ header > h2{
     border: 1px solid #888888;
     border-radius: 10px;
     padding: 5px;
-    font-family: 'Epilogue';
+    font-family: 'IbIbarra Real';
     font-size: 1rem;
     color: #ffffff;
 }
@@ -303,7 +389,7 @@ input#qtdCriancas.invalid {
 }
 
 .divInputsRadio > h4{
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     margin-bottom: 5px;
     font-size: 1.25rem;
 }
@@ -324,7 +410,7 @@ input#qtdCriancas.invalid {
 }
 
 .descRadio > h4{
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     font-size: 1rem;
 }
 
@@ -349,7 +435,7 @@ input[type="radio"]:checked {
     border: 1px solid #888888;
     border-radius: 10px;
     padding: 5px;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     font-size: 1rem;
     color: #ffffff;
 
@@ -365,7 +451,7 @@ input[type="radio"]:checked {
     justify-content: center;
     width: 100%;
     height: 40px;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     color: #1B1B1B;
     font-weight: 300;
     font-size: 1.1rem;
@@ -407,7 +493,7 @@ input[type="radio"]:checked {
 
 .divLinkFotos >h4{
     color: #888888;
-    font-family: 'Epilogue';
+    font-family: 'Ibarra Real';
     text-align: center;
 }
 
@@ -415,9 +501,10 @@ footer{
     height: 5%;
     width: 100%;
     text-align: center;
-    color: #424242;
-    margin: 10px 0;
-    background: transparent
+    color: #e5e5e5;
+    margin: 15px 0;
+    background: transparent;
+    font-family: 'Ibarra Real';
 }
 
 .hidden{
@@ -429,12 +516,6 @@ footer{
     html{
         font-size: 16px;
     }
-    .formandaNome{
-        font-weight: 200;
-        letter-spacing: 1.5px;
-        text-align: center;
-        font-size: 1.25rem;
-    }
 
     input[type=radio], input[type=checkbox]  {
         border: 0px;
@@ -443,6 +524,12 @@ footer{
         vertical-align: middle;
         color : var(--primary);
     }
+
+    .goldLeave1 , .goldLeave2{
+        width: 90px;
+        height: 90px;
+    }
+    
 }
 
 @media only screen and (min-width:501px) and (max-width: 768px){
@@ -459,6 +546,12 @@ footer{
         height: 30px;
         vertical-align: middle;
     }
+
+    .goldLeave1 , .goldLeave2{
+        width: 90px;
+        height: 90px;
+    }
+    
 }
 
 @media only screen and (min-width:769px) and (max-width: 1024px){
@@ -472,12 +565,27 @@ footer{
         vertical-align: middle;
         color : var(--primary);
     }
+
+    .goldLeave1 , .goldLeave2{
+        width: 150px;
+        height: 150px;
+    }
+
 }
+
+
 
 @media only screen and (min-width:1440px) {
     html{
         font-size: 24px;
     }
+
+    .goldLeave1 , .goldLeave2{
+        width: 250px;
+        height: 250px;
+    }
+
+
 }
 
 

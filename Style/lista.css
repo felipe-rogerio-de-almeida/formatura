@@ -13,6 +13,17 @@
     src: url("../Fonts/Sacramento-Regular.ttf");
 }
 
+@font-face {
+    font-family: 'Amsterdan Four' ;
+    src: url("../Fonts/amsterdam-four-ttf.ttf");
+}
+
+
+@font-face {
+    font-family: 'Ibarra Real Nova' ;
+    src: url("../Fonts/IbarraRealNova-VariableFont_wght.ttf");
+}
+
 html{
     font-size: 22px;
     color: white;
@@ -108,6 +119,7 @@ body::-webkit-scrollbar-track {
     border: 1px solid #000000;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
     cursor: pointer;
+    color: #1b1b1b;
 }
 
 .btnFiltros:hover{
