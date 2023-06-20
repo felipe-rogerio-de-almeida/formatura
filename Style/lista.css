@@ -13,21 +13,6 @@
     src: url("../Fonts/Sacramento-Regular.ttf");
 }
 
-@font-face {
-    font-family: 'Amsterdan Four' ;
-    src: url("../Fonts/amsterdam-four-ttf.ttf");
-}
-
-@font-face {
-    font-family: 'Ibarra Real Nova' ;
-    src: url("../Fonts/IbarraRealNova-VariableFont_wght.ttf");
-}
-
-@font-face {
-    font-family: 'Dream Avenue' ;
-    src: url("../Fonts/Dream-Avenue.ttf");
-}
-
 html{
     font-size: 22px;
     color: white;
@@ -64,6 +49,18 @@ p{
     line-height: 140%;
 }
 
+.imprimir{
+    font-size: 14px !important; 
+}
+
+.imprimirCabecalho{
+    font-size: 18px !important; 
+}
+
+.imprimirTitulo{
+    font-size: 36px !important; 
+}
+
 
 *{
     margin: 0;
@@ -90,11 +87,11 @@ body::-webkit-scrollbar-track {
 }
 
 .titulo{
-    font-family: 'Amsterdan Four';
+    font-family: 'Sacramento';
     text-align: center;
     color: var(--primary);
     margin-top:50px;
-    margin-bottom: 55px;
+    margin-bottom: 25px;
 }
 
 .divFlex{
@@ -116,7 +113,7 @@ body::-webkit-scrollbar-track {
 .btnFiltros{
     width: 23%;
     font-size: 0.7rem;
-    font-family: 'Ibarra Real';
+    font-family: 'Epilogue';
     border-radius: 10px;
     height: 30px;
     background-color: #e5e5e5;
@@ -132,6 +129,22 @@ body::-webkit-scrollbar-track {
     transition: background 0.5s ease;
 }
 
+#imprimir-lista{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#download{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
 .active{
     background-color: var(--primary);
     color: #1B1B1B;
@@ -142,10 +155,10 @@ table{
 }
 
 th{
-    font-size: 1rem;
+    font-size: 1.25rem;
     text-align: center;
-    margin: 5px;
-    font-family: 'Dream Avenue';
+    margin: 5px 10px;
+    font-family: 'Sacramento';
     vertical-align: middle;
 }
 
@@ -153,11 +166,7 @@ td{
     text-align: center;
     vertical-align: middle;
     font-size: 1rem;
-    margin: 10px;
-}
-
-td:first-child{
-    text-align: left;
+    margin: 10px 0;
 }
 
 .search-container {
@@ -190,7 +199,7 @@ td:first-child{
     transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
-    font-family: 'Ibarra Real';
+    font-family: 'Epilogue';
     background-color: #424242;
     caret-color: var(--primary);
     color: #ffffff;

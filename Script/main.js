@@ -118,19 +118,21 @@ btnEnviar.addEventListener('click', () => {
     enviarResposta();
   }
 
-
 });
+
+function capitalizeWords(input) {
+  return input.toLowerCase().replace(/\b\w/g, function(match) {
+    return match.toUpperCase();
+  });
+}
+
 
 // Função que será chamada ao clicar no botão enviar
 const enviarResposta = () => {
-  alert('Resposta enviada!');
-  btnEnviar.innerHTML = "Resposta Enviada!"
-  btnEnviar.disabled = true;
-  btnEnviar.style = "background-color: #37825A; color: #ffffff;"
 
   // Código para enviar a resposta para o servidor
   const resposta = {
-    nome: document.querySelector('#nome').value,
+    nome:  capitalizeWords(document.querySelector('#nome').value),
     presenca: document.querySelector('input[name="presenca"]:checked').value,
     crianca: document.querySelector('input[name="crianca"]:checked').value,
     qtdCriancas: document.querySelector('#qtdCriancas').value,
@@ -146,25 +148,39 @@ const enviarResposta = () => {
     // Preenche o array de nomes das crianças, caso haja
     const inputsNomeCrianca = document.querySelectorAll('.inputNomeCrianca');
     inputsNomeCrianca.forEach(input => {
-      resposta.nomesCriancas.push(input.value);
+      resposta.nomesCriancas.push(capitalizeWords(input.value));
     });
   }
   
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', '../lista.json');
-  xhr.onload = function() {
-    const dados = JSON.parse(this.responseText);
+  const dados = [];
     dados.push(resposta);
-    console.log(dados)
-    const xhr2 = new XMLHttpRequest();
-    const novosDados = JSON.stringify(dados)
-    xhr2.open('POST', './Script/salvar.php');
-    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr2.onload = function() {
-      console.log('Dados salvos com sucesso!');
+    console.log(dados);
+  
+    const xhr = new XMLHttpRequest();
+    const novosDados = JSON.stringify(dados);
+    
+    xhr.open('POST', './Script/salvar.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        console.log('Dados salvos com sucesso!');
+        alert('Resposta enviada!');
+        btnEnviar.innerHTML = "Resposta Enviada!"
+        btnEnviar.disabled = true;
+        btnEnviar.style = "background-color: #37825A; color: #ffffff;"
+      } else {
+        console.error('Erro ao salvar os dados:', xhr.statusText);
+        alert("Falha ao se comunicar com o servidor! Atualize a página e tente novamente!")
+      }
     };
-    xhr2.send('dados=' + novosDados);
-  };
-  xhr.send();
+    
+    xhr.onerror = function() {
+      console.error('Erro na requisição.');
+      alert("Falha ao se comunicar com o servidor! Atualize a página e tente novamente!")
+
+    };
+    
+    xhr.setRequestHeader('Cache-Control', 'no-cache')
+    xhr.send('dados=' + novosDados);
 }
 

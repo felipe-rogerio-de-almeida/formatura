@@ -218,6 +218,12 @@ header > h2{
     }
 }
 
+.tituloImg{
+    width: 60px;
+    height: 60px;
+    display: none !important;
+}
+
 .tituloText{
     margin-left: 5px;
     color: var(--primary);

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatura</title>
+    <link rel="stylesheet" href="./Style/style.css">
+    <link rel="icon" href="./Assets/fav-icon.png" sizes="32x32">
+    <link rel="icon" href="./Assets/fav-icon.png" sizes="64x64">
+    <link rel="icon" href="./Assets/fav-icon.png" sizes="128x128">
+</head>
+<body>
+    <header>
+        <img src= "./Assets/GoldLeaves.png" class="goldLeave1">
+        <h2>Medicina 2023.1</h2>
+        <img src= "./Assets/GoldLeaves.png" class="goldLeave2">
+    </header>
+    <img alt="Formandas 2023.1" src="./Assets/CapaDesktop.jpg" class="capa">
+    
+    <!-- Formandas-->
+    <main class="formandas">
+        <!--Titulo Menu-->
+        <div class="titulo">
+            <h1 class="tituloText">Formandas</h1>
+        </div>
+        <!--/Titulo Menu-->
+
+        <div class="formandasGrid">
+            <!--Ana Luiza Dutra-->
+            <div class="formanda ">
+                <img class="formandaImg" src="./Assets/Formandas/Ana Luiza Dutra@Desktop.jpeg" alt="Ana Luiza Dutra">
+                <h4 class="formandaNome">Ana Luiza Dutra</h4>
+            </div>
+            <!-- /Ana Luiza Dutra-->
+
+            <!-- Beatriz  Tejo-->
+            <div class="formanda">
+                <img class="formandaImg" src="./Assets/Formandas/Beatriz Tejo@Desktop.jpg" alt="Beatriz Tejo">
+                <h4 class="formandaNome">Beatriz Tejo</h4>
+            </div>
+            <!-- /Beatriz  Tejo-->
+
+            <!-- Christine Almeida-->
+            <div class="formanda">
+                <img class="formandaImg" src="./Assets/Formandas/Christine Almeida@Desktop.jpeg" alt="Christine Almeida">
+                <h4 class="formandaNome">Christine Almeida</h4>
+            </div>
+            <!-- /Christine Almeida-->
+
+            <!-- Gabriela  Saffe-->
+            <div class="formanda">
+                <img class="formandaImg" src="./Assets/Formandas/Gabriela Saffe@Desktop.jpeg" alt="Gabriela Saffe">
+                <h4 class="formandaNome">Gabriela Saffe</h4>
+            </div>
+            <!-- /Gabriela  Saffe-->
+
+            <!-- Julia Vieira-->
+            <div class="formanda">
+                <img class="formandaImg" src="./Assets/Formandas/Julia Vieira@Desktop.jpg" alt="Julia Vieira">
+                <h4 class="formandaNome">Júlia Vieira</h4>
+            </div>
+            <!-- /Julia Vieira-->
+
+            <!-- Victoria Almeida-->
+            <div class="formanda">
+                <img class="formandaImg" src="./Assets/Formandas/Victoria Almeida@Desktop.jpg" alt="Victoria Almeida">
+                <h4 class="formandaNome">Victoria Bahiana</h4>
+            </div>
+            <!-- /Victoria Almeida-->
+
+        </div>
+
+    </main>
+    <!-- Formandas-->
+
+    <!-- Contagem Regressiva-->
+    <main class="contagemRegressiva">
+        <!--Titulo Menu-->
+        <div class="titulo">
+            <h1 class="tituloText">Contagem regressiva</h1>
+        </div>
+        <!--/Titulo Menu-->
+
+
+        <div class="relogioGrid">
+            <div class="divisaoRelogio">
+                <!-- Dias-->
+                <div class="relogio">
+                    <div class="numero" >
+                        <h1 id="dia1"></h1>
+                    </div>
+                    <div class="numero" >
+                        <h1 id="dia2"></h1>
+                    </div>
+                </div>
+                <h4>dias</h4>
+            </div>
+            <!-- /Dias-->
+
+            <h1 class="ponteiro">:</h1>
+            <!-- Horas-->
+            <div class="divisaoRelogio">
+                <div class="relogio">
+                    <div class="numero" >
+                        <h1 id="hora1"></h1>
+                    </div>
+                    <div class="numero">
+                        <h1 id="hora2"></h1>
+                    </div>
+                </div>
+                <h4>horas</h4>
+            </div>
+            <!-- /Horas-->
+
+            <h1 class="ponteiro">:</h1>
+            <!-- Minutos-->
+            <div class="divisaoRelogio">
+                <div class="relogio">
+                    <div class="numero">
+                        <h1 id="minuto1"></h1>
+                    </div>
+                    <div class="numero">
+                        <h1 id="minuto2"></h1>
+                    </div>
+                </div>
+                <h4>minutos</h4>
+            </div>
+            <!-- /Minutos-->
+        </div>
+        <script src="./Script/relogio.js"></script>
+        <h4 class="comemorarTitulo" > PARA COMEMORARMOS JUNTOS!</h4>
+
+
+    </main>
+    <!-- /Contagem Regressiva-->
+
+    <!-- Confirme Sua Presença-->
+    <main class="confirmarPresenca">
+        <!--Titulo Menu-->
+        <div class="titulo">
+            <h1 class="tituloText">Confirme sua presença</h1>
+        </div>
+        <!--/Titulo Menu-->
+        <!-- Nome Completo-->
+        <div class="divInput">
+            <input type="text" class="inputNome" id="nome" placeholder="Nome Completo">
+        </div>
+        <!-- /Nome Completo-->
+        
+        <!-- Presença-->    
+        <div class="divInputsRadio">
+            <h4>Você irá ao evento?</h4>
+            <div class="divRadio">
+                <div class="descRadio">
+                    <input type="radio" name="presenca" id="presencaSim" value="sim">
+                    <h4>Sim</h4>
+                </div>
+                <div class="descRadio">
+                    <input type="radio" name="presenca" id="presencaNao" value="nao">
+                    <h4>Não</h4>
+                </div>    
+            </div>
+        </div>
+        <!-- /Presença-->   
+
+        <!-- CriançasSouN-->
+        <div class="divInputsRadio hidden" id="divInputsRadio">
+            <h4>Crianças de até 10 anos?</h4>
+            <div style="display: flex;width: 100%;">
+                <div class="divRadio">
+                    <div class="descRadio">
+                        <input type="radio" name="crianca" id="presencaSim" value="sim">
+                        <h4>Sim</h4>
+                    </div>
+                    <div class="descRadio">
+                        <input type="radio" name="crianca" id="presencaNao" value="nao">
+                        <h4>Não</h4>
+                    </div>    
+                </div>
+                <div id="divQtdCrianca" class="hidden" style="display:flex; width:50%;justify-content: flex-end;">
+                    <input type="text" name="qtdCriancas" id="qtdCriancas" class="qtdCriancas" placeholder="Quantas?">
+                </div>
+            </div>
+        </div>
+        <!-- /CriançasSouN-->
+
+        <!-- Crianças-->
+        <div class="divInput hidden" id="divInput">
+        </div>
+        <!-- /Crianças-->
+
+        <!-- Botão Enviar-->
+        <div class="divInput">
+            <button class="btnEnviar" id="btnEnviar">Enviar Resposta!</button>
+        </div>
+        <!-- /Botão Enviar-->
+
+    </main>
+    <!-- /Confirme Sua Presença-->
+    
+    <!-- Local-->
+    <main class="local"> 
+        <!--Titulo Menu-->
+        <div class="titulo">
+            <h1 class="tituloText">Local</h1>
+        </div>
+        <!--/Titulo Menu-->
+        <h4 style="margin-top:20px;margin-bottom: 15px;text-align: center; font-family: 'Ibarra Real';font-size: 1.25rem;"> Cerimonial Rainha Leonor - Pupileira</h4>
+        <div class="fotosLocal">
+            <img class="imgLocal" alt="" src="./Assets/Cerimonial/Cerimonial01.jpg">
+            <img class="imgLocal" alt="" src="./Assets/Cerimonial/Cerimonial02.jpg">
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8448224867125!2d-38.510762789071606!3d-12.98177518728175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71604eae6c0e073%3A0x1085c6db67618532!2sCerimonial%20Rainha%20Leonor!5e0!3m2!1spt-BR!2sbr!4v1682359953810!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;border-radius:15px;padding: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </main>
+    <!-- /Local-->
+    
+    <!-- Fotos-->
+    <main>
+        <!--Titulo Menu-->
+        <div class="titulo">
+            <h1 class="tituloText">Fotos</h1>
+        </div>
+        <!--/Titulo Menu-->
+        <div class="divLinkFotos">
+            <h4>Link com as fotos da festa estará disponível após o evento</h4>
+        </div>
+    </main>
+    <!-- /Fotos-->
+
+    <footer>
+        <p class="small">Todos os direitos reservados &copy; 2023</p>
+    </footer>
+    <script src="./Script/main.js"></script>
+</body>
+</html>
